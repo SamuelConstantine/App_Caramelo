@@ -11,8 +11,6 @@ export const Header = styled(Appbar.Header)`
     border-bottom-width: 0.5px;
 `
 
-
-
 export const TitleBar = styled.Text`
     color: white;
     font-size: 20px;

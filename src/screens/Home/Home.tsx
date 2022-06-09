@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import React from 'react'
 import { Body } from '../../Styles/StylesUtils'
 import AppBar from '../../components/AppBar'
