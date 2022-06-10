@@ -1,9 +1,10 @@
-import * as React from 'react';
-import { View } from 'react-native';
-import * as reactNativePaper from 'react-native-paper';
-
+import{Text, View} from 'react-native';
+// import * as reactNativePaper from 'react-native-paper';
+import { Button,Card } from 'react-native-paper';
 import {
-    Cardw
+  CardContainer,
+  TextDetails,
+  ActionsCard
 } from '../Styles/CardStyle'
 
 type Props = {
@@ -15,17 +16,18 @@ type Props = {
     },
   }
 
-export const Card = ({description}: Props) => {
+export const CardFull = ({description}: Props) => {
 
 console.log("descriptionw", description)
 
   return (
-    <Cardw>
-        <reactNativePaper.Card.Title title={description.name} subtitle={description.age}  />
-        <reactNativePaper.Card.Cover source={{ uri: 'https://picsum.photos/700' }} />
-        <reactNativePaper.Card.Actions>
-        <reactNativePaper.Button>detalhes</reactNativePaper.Button>
-        </reactNativePaper.Card.Actions>
-    </Cardw>
+    <CardContainer>
+        <Card.Title title={description.name} subtitle={description.age}  />
+        <Card.Cover source={{ uri: 'https://picsum.photos/700' }} />
+        <ActionsCard>
+          <Button><TextDetails>Detalhes</TextDetails></Button>
+          <Button><TextDetails>favorite</TextDetails></Button>
+        </ActionsCard>
+    </CardContainer>
   )
 };

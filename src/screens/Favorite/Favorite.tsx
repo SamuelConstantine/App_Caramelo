@@ -7,34 +7,18 @@ const DATA = [
   {
     id: 1,
     name: 'Cheeatara',
-    type: 'gata',
+    type: 'cat',
     descripition: 'Uma gatinha muito carinhosa',
     age: '1 ano e 5 meses'
-  },
-  {
-    id: 2,
-    name: 'Cris',
-    type: 'dog',
-    descripition: 'cahorinho fofo',
-    age: '1 ano e 3 meses'
-
-  },
-  {
-    id: 3,
-    name: 'Smoke',
-    type: 'gato',
-    descripition: 'Gato preguiçoso',
-    age: '2 ano e 1 meses'
-
   },
 ];
 
 const renderItem = ({item}:any) => <CardFull description={item} />
 
-export default function HomeScreen() {
+export default function FavoriteScreen() {
 
   return (
-    <LayoutManageSafeBox goback={false} title={'Home'} right={true}>
+    <LayoutManageSafeBox goback={true} title={'Favoritos'} right={false}>
        <FlatList
         showsVerticalScrollIndicator={false}
         data={DATA}

@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { Appbar } from 'react-native-paper';
+import { Text } from 'react-native';
 
 export const Content = styled(Appbar.Content)`
     align-items: center;
@@ -11,7 +12,7 @@ export const Header = styled(Appbar.Header)`
     border-bottom-width: 0.5px;
 `
 
-export const TitleBar = styled.Text`
+export const TitleBar = styled(Text)`
     color: white;
     font-size: 20px;
     font-weight: bold; 

@@ -20,8 +20,8 @@ const loginData = {
   password: 'caramelo123'
 }
 
-
 export default function LoginScreen({ navigation }) {
+  
   const [visible, setVisible] = useState(false);
   const [error, setError] = useState({title: '', message:''});
 

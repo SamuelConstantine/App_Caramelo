@@ -4,6 +4,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 
 import LoginScreen from "./screens/Login/LoginScreen";
 import HomeScreen from "./screens/Home/Home";
+import FavoriteScreen from "./screens/Favorite/Favorite";
 
 const Stack = createStackNavigator();
 
@@ -16,6 +17,7 @@ function Routes() {
             >
                 <Stack.Screen name="Login" component={LoginScreen} />
                 <Stack.Screen name="HomeScreen" component={HomeScreen} />
+                <Stack.Screen name="FavoriteScreen" component={FavoriteScreen} />
             </Stack.Navigator>
         </NavigationContainer>
     )
