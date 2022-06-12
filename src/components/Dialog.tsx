@@ -16,15 +16,15 @@ const DialogMessage = ( {status, title, message, setState}: Props) => {
       <Provider>
         <View>
             <Portal>
-            <Dialog visible={status} onDismiss={hideDialog}>
-                <Dialog.Title>{title}</Dialog.Title>
-                <Dialog.Content>
-                <Paragraph>{message}</Paragraph>
-                </Dialog.Content>
-                <Dialog.Actions>
-                <Button onPress={hideDialog}>Ok</Button>
-                </Dialog.Actions>
-            </Dialog>
+              <Dialog visible={status} onDismiss={hideDialog}>
+                  <Dialog.Title>{title}</Dialog.Title>
+                  <Dialog.Content>
+                    <Paragraph>{message}</Paragraph>
+                  </Dialog.Content>
+                  <Dialog.Actions>
+                    <Button onPress={hideDialog}>Ok</Button>
+                  </Dialog.Actions>
+              </Dialog>
             </Portal>
         </View>
       </Provider>

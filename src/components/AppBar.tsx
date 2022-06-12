@@ -15,7 +15,6 @@ type Props = {
 
 export default function AppBar({ description, goback, rightButton} : Props) {
     const navigation = useNavigation()
-    console.log("navigationigation", navigation)
     return (
         <Header style={{ elevation: 20 }}> 
             {goback ? <Appbar.Action icon="arrow-left" onPress={() => {navigation.goBack()}} /> : <View style={{width: '10%'}}></View> }

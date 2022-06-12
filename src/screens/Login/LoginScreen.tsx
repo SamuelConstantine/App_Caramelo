@@ -4,7 +4,7 @@ import Button from '../../components/Button'
 import DialogMessage from '../../components/Dialog'
 import Logo from '../../components/Logo';
 import {
-  TextInput,
+  Input,
   Title,
   ViewContext,
   TextWelcome,
@@ -14,13 +14,15 @@ import {
 import { Body } from '../../Styles/StylesUtils'
 
 import { Formik } from 'formik'
+import { useNavigation } from '@react-navigation/native';
 
 const loginData = {
   email: 'Caramelo.teste@gmail.com',
   password: 'caramelo123'
 }
 
-export default function LoginScreen({ navigation }) {
+export default function LoginScreen({  }) {
+  const navigation = useNavigation()
   
   const [visible, setVisible] = useState(false);
   const [error, setError] = useState({title: '', message:''});
@@ -33,8 +35,7 @@ export default function LoginScreen({ navigation }) {
       console.log("entrei na validação")
       navigation.navigate('HomeScreen')
     } else {
-      console.log("entrei no erro")
-      navigation.navigate('HomeScreen')
+      navigation.navigate('HomeScreen') /// ERRADOooooooooooooooooooooooooooooooooooooooooooooooo
       setVisible(true)
       setError({title: 'Erro ao efetuar o Login!', message:'Usuario ou senha estão incorretas. Tente novamente'})
     }
@@ -85,7 +86,7 @@ export default function LoginScreen({ navigation }) {
             <Logo></Logo>
             <TextWelcome>Bem-vindo!</TextWelcome>
             <Title>FAÇA SEU LOGIN</Title>
-            <TextInput 
+            <Input 
               placeholder="E-mail"
               placeholderTextColor={touched.email && errors.password ? '#de1536' : '#017c68'}
               value={values.email}
@@ -94,7 +95,7 @@ export default function LoginScreen({ navigation }) {
               style={{ borderColor: touched.email && errors.email ? '#de1536' : '#017c68' }}
             />
             {touched.email && errors.email && <TextError>{errors.email}</TextError>}
-            <TextInput
+            <Input
               placeholder="Senha"
               placeholderTextColor={ touched.password && errors.password ? '#de1536' : '#017c68'}
               value={values.password}

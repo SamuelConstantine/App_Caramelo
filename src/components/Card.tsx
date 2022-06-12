@@ -1,33 +1,51 @@
-import{Text, View} from 'react-native';
-// import * as reactNativePaper from 'react-native-paper';
-import { Button,Card } from 'react-native-paper';
+import React from 'react';
+import { Colors ,Card, IconButton } from 'react-native-paper';
 import {
   CardContainer,
-  TextDetails,
-  ActionsCard
 } from '../Styles/CardStyle'
+import { getLocalStorage, setLocalStorage } from '../core/utils'
+import { GestureResponderEvent } from 'react-native';
 
 type Props = {
     description: {
         name: string
         descripition: string
-        tipy: string
         age: string
+        image:string
     },
+    visible: any
   }
 
-export const CardFull = ({description}: Props) => {
 
-console.log("descriptionw", description)
+export const CardFull = ({description, visible}: Props) => {
+
+  const detailsAdd = (item:object) => {
+    visible({visible:true, data:item})
+  }
+
+
+  const favoriteAdd  = async (item:object) => {
+    let arrayFavorites = await getLocalStorage('favorite')
+    // console.log("item", item.id)
+    console.log("arrayFavorites", arrayFavorites)
+    if (arrayFavorites) {
+      arrayFavorites.push(item)
+    } else {
+      arrayFavorites = [item]
+    }
+    console.log("atualizado", arrayFavorites)
+
+    setLocalStorage(arrayFavorites)
+  }
+
 
   return (
-    <CardContainer>
-        <Card.Title title={description.name} subtitle={description.age}  />
-        <Card.Cover source={{ uri: 'https://picsum.photos/700' }} />
-        <ActionsCard>
-          <Button><TextDetails>Detalhes</TextDetails></Button>
-          <Button><TextDetails>favorite</TextDetails></Button>
-        </ActionsCard>
+    <CardContainer onPress={() => {detailsAdd(description)}} >
+        <Card.Title 
+          title={description.name}
+          subtitle={description.age} 
+          right={(props) => <IconButton  icon="heart-circle-outline"  color={Colors.red600} size={22} onPress={() => {favoriteAdd(description)}}></IconButton> } />
+        <Card.Cover style={{borderRadius: 20}} source={{ uri: description.image }} />
     </CardContainer>
   )
 };

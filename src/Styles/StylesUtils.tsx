@@ -1,8 +1,8 @@
 import { TouchableOpacity, View } from 'react-native'
 import styled from 'styled-components'
+import { Text, Image } from 'react-native'
 
-
-export const Image = styled.Image`
+export const Img = styled(Image)`
   width: 100%;
   height: 43%;
   align-items: flex-end;
@@ -26,7 +26,7 @@ export const StyleButton = styled(TouchableOpacity)`
   width: 95%;
 `
 
-export const Text = styled.Text`
+export const TextGeral = styled(Text)`
     color: white;
     font-size: 20px;
     font-weight: bold; 

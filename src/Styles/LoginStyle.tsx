@@ -1,23 +1,24 @@
+import { TextInput, Text , View} from 'react-native'
 import styled from 'styled-components'
 
-export const TextWelcome= styled.Text`
+export const TextWelcome= styled(Text)`
   color: #62cb65;
   text-align: center;
 `
 
-export const TextError = styled.Text`
+export const TextError = styled(Text)`
   color: rgb(222, 21, 54);
   text-align: center;
   padding-top: 5px;
 `
 
-export const ViewContext = styled.View`
+export const ViewContext = styled(View)`
     top: 15%;
     width: 100%;
     align-items: center;
 `
 
-export const Title = styled.Text`
+export const Title = styled(Text)`
     color: #62cb65;
     font-size: 26px;
     font-weight: bold; 
@@ -25,7 +26,7 @@ export const Title = styled.Text`
 `
 
 
-export const TextInput = styled.TextInput`
+export const Input = styled(TextInput)`
     font-size: 20px;
     padding: 14px;
     align-items: center;

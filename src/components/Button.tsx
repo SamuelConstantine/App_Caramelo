@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 import React from 'react'
 import { GestureResponderEvent } from 'react-native'
-import { StyleButton, Text } from '../Styles/StylesUtils'
+import { StyleButton, TextGeral } from '../Styles/StylesUtils'
 
 type Props = {
   description: string | null,
@@ -11,7 +11,7 @@ type Props = {
 export default function Button({ description, onPress } : Props) {
   return (
     <StyleButton onPress={onPress}>
-      <Text>{description}</Text>
+      <TextGeral>{description}</TextGeral>
     </StyleButton>
   )
 }
