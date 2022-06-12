@@ -17,8 +17,8 @@ import { Formik } from 'formik'
 import { useNavigation } from '@react-navigation/native';
 
 const loginData = {
-  email: 'Caramelo.teste@gmail.com',
-  password: 'caramelo123'
+  email: 'caramelo.teste@gmail.com',
+  password: 'Caramelo123'
 }
 
 export default function LoginScreen({  }) {
@@ -30,12 +30,9 @@ export default function LoginScreen({  }) {
   
   const signIn = async (values: any) => {
     const {email, password} = values
-
     if (email === loginData.email && password === loginData.password) {
-      console.log("entrei na validação")
       navigation.navigate('HomeScreen')
     } else {
-      navigation.navigate('HomeScreen') /// ERRADOooooooooooooooooooooooooooooooooooooooooooooooo
       setVisible(true)
       setError({title: 'Erro ao efetuar o Login!', message:'Usuario ou senha estão incorretas. Tente novamente'})
     }
@@ -62,13 +59,13 @@ export default function LoginScreen({  }) {
   return (
     <Formik
       initialValues={{ email: '', password: '' }}
-      // validationSchema={Yup.object().shape({
-      //   email: Yup.string()
-      //     .email('Email não é valido')
-      //     .max(255)
-      //     .required('Email é obrigatório'),
-      //   password: Yup.string().max(255).required('Senha é obrigatória'),
-      // })}
+      validationSchema={Yup.object().shape({
+        email: Yup.string()
+          .email('Email não é valido')
+          .max(255)
+          .required('Email é obrigatório'),
+        password: Yup.string().max(255).required('Senha é obrigatória'),
+      })}
       onSubmit={(values) => signIn(values)}
     >
       {({
@@ -97,6 +94,7 @@ export default function LoginScreen({  }) {
             {touched.email && errors.email && <TextError>{errors.email}</TextError>}
             <Input
               placeholder="Senha"
+              secureTextEntry
               placeholderTextColor={ touched.password && errors.password ? '#de1536' : '#017c68'}
               value={values.password}
               onChangeText={handleChange('password')}

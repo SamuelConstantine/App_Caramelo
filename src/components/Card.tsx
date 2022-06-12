@@ -26,15 +26,13 @@ export const CardFull = ({description, visible}: Props) => {
 
   const favoriteAdd  = async (item:object) => {
     let arrayFavorites = await getLocalStorage('favorite')
-    // console.log("item", item.id)
-    console.log("arrayFavorites", arrayFavorites)
     if (arrayFavorites) {
+      const index = arrayFavorites.findIndex((itm: any) => itm.id === item.id);
+      if (index !== -1) return;
       arrayFavorites.push(item)
     } else {
       arrayFavorites = [item]
     }
-    console.log("atualizado", arrayFavorites)
-
     setLocalStorage(arrayFavorites)
   }
 

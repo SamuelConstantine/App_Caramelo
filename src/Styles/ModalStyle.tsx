@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { Modal, Portal, Text, Button, Provider, Card, List, IconButton, Colors } from 'react-native-paper';
 
 export const Image = styled(Card.Cover)`
-    height: 350;
+    height: 350px;
     border-top-right-radius: 10px;
     border-top-left-radius: 10px;
 `
